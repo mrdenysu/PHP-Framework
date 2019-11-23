@@ -1,15 +1,14 @@
 <?php
 
-require_once('core/ViewClass.php');
-require_once('core/ModelClass.php');
+require_once('pfw/core/ApplicationClass.php');
 
-$view = new ViewClass();
-$model = new ModelClass();
+class Application extends ApplicationClass
+{
+  public function run()
+  {
+    echo $this->address;
+  }
+}
 
-$model->DB_init();
-$text = $model->DB_row('SELECT * FROM `test`');
-
-$view->render('main', [
-  'title' => 'Main Page',
-  'text' => $text
-]);
+$app = new Application();
+$app->run();
