@@ -6,7 +6,7 @@ class RouterClass
 
   public function __construct()
   {
-    $this->address = $_SERVER['REQUEST_URI'];
+    $this->address = explode('?', $_SERVER['REQUEST_URI'])[0];
   }
 
   /**
